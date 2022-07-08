@@ -1,0 +1,7 @@
+apiVersion: networking.k8s.io/v1
+annotations: 
+  kubernetes.io/ingress.class: "gce-internal"
+hosts: 
+  - url: "dash.week8challenge.tk"
+    protocol: https
+    path: /*
