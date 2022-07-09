@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: blackbox-exporter
+  namespace: kube-grafana
+  labels:
+    release: my-kube-prometheus-stack
+spec:
+  jobName: http-get
+  interval: 60s
+  module: http_2xx
+  prober:
+    url: my-prometheus-blackbox-exporter.kube-grafana.svc.cluster.local:9115
+    scheme: http
+    path: /probe
+  targets:
+    staticConfig:
+      static:
+      - http://week8challenge.tk
+      - http://dash.week8challenge.tk
+      - http://monitor.week8challenge.tk
